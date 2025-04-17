@@ -17,12 +17,9 @@ post.errors.any? %>
 </div>
 <% end %>
 
-<div class="my-5">
-  <% if post.image.attached? %>
-  <div class="mt-2"><%= image_tag url_for(post.image) %></div>
-  <%= form.file_field :image, class: "block py-2 mt-2" %>
+<div class="my5">
+  <%= form.file_field :image, accept: 'image/*', capture: 'enviornment', class: "block py-2 mt-2" %>
 </div>
-<% end %>
 <div class="my-5">
   <%= form.label :description %> <%= form.text_area :description, rows: 4,
   class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2
