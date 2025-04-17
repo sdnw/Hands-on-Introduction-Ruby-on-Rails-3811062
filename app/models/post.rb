@@ -5,6 +5,8 @@ class Post < ApplicationRecord
 
   has_one_attached :image
 
+  scope :ordered_by_most_recent, -> { order(id: :desc) }
+
   def description_must_be_at_least_three_words
     if description.split.size < 3
       errors.add(:description, "must be at least 3 words")
